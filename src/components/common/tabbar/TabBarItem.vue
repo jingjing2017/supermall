@@ -70,12 +70,11 @@ export default {
   }
 
 .tab-bar-item img{
-    width: 22px;
-    height: 22px;
-    margin-top:2px;
+    width: 23px;
+    margin-top:3px;
   }
 .tab-bar-item div{
-  margin-top:-3px;
+  margin-top:-1px;
 }
 /* 点击时的颜色也需要动态决定 */
 /* .text-active{
