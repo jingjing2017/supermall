@@ -1,6 +1,6 @@
 // 配置别名
 module.exports = {
-    configurewebpack: {
+    configureWebpack: {
         resolve: {
             alias: {  //别名
                 // '@': 'src'  //默认已经配置好的
