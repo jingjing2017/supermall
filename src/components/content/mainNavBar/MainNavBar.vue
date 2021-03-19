@@ -17,8 +17,16 @@ export default {
 </script>
 
 <style>
-    .home-nav{
-        color: #fff;
-        background-color: var(--color-tint);
-    }
+  #home{
+    padding-top: 44px;
+  }
+  .home-nav{
+    color: #fff;
+    background-color: var(--color-tint);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+  }
 </style>

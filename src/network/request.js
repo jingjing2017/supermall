@@ -12,7 +12,7 @@ export function request(config){
     // axios.interceptors : 全局的拦截器
     // (1) 请求拦截：
     instance.interceptors.request.use(config => {  //请求成功获取的到数据为config
-        console.log(config);
+        // console.log(config);
         // 请求拦截要做什么事呢？
         // 1.比如：config中的信息不符合服务器的要求，需要拦截到config中的信息进行某种变化后在返回给服务器
 
@@ -26,7 +26,7 @@ export function request(config){
     });  
     // (2) 响应拦截： 
     instance.interceptors.response.use(res => {  //响应成功的拦截
-        console.log(res);    //res是响应成功的服务器返回的数据
+        // console.log(res);    //res是响应成功的服务器返回的数据
         return res.data;  // 将结果中的data返回，这样最终的结果就只有data中的服务器中数据，没有axios框架添加的东西了
     }, err => {  //响应失败的拦截
         console.log(err); 
