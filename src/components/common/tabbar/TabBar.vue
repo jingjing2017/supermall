@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* 老师的 */
   #tab-bar{
     display: flex;

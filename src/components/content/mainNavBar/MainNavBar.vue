@@ -17,9 +17,6 @@ export default {
 </script>
 
 <style>
-  #home{
-    padding-top: 44px;
-  }
   .home-nav{
     color: #fff;
     background-color: var(--color-tint);
