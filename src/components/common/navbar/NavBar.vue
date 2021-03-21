@@ -21,14 +21,17 @@ export default {
 
 <style scoped>
   .nav-bar{  /**导航栏一般高度是44px */
-    width:100%;
+    max-width:750px;
+    margin: 0 auto;
     height: 44px;
-
+    
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+    font-weight: 700;
+    font-size: 15px;
   }
   .nav-bar-left,.nav-bar-right{
       width: 45px;

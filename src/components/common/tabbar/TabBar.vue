@@ -38,10 +38,15 @@ export default {
 </script>
 
 <style scoped>
+/* 仅在这个局部的style中生效 */
+*{
+  max-width: 750px;
+  margin: 0 auto;
+}
 /* 老师的 */
   #tab-bar{
     display: flex;
-    background-color: #efefef;
+    background-color: #f6f6f6;
 
     position: fixed;
     left: 0;
