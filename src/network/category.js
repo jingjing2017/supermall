@@ -13,7 +13,6 @@ export function getCategoryMenu(){   //获取接口数据
 
 // 分类的接口
 export function getCategory(maitKey){   //获取接口数据
-    // 方法2和方法3 Promise 最终方案
     return request({   
         url: '/subcategory',
         params: {
@@ -21,3 +20,14 @@ export function getCategory(maitKey){   //获取接口数据
         }
     })
 }
+
+// 商品列表接口
+export function getCategoryDetail(miniWallkey, type) {
+    return request({
+      url: '/subcategory/detail',
+      params: {
+        miniWallkey,
+        type
+      }
+    })
+  }

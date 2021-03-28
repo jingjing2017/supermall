@@ -1,18 +1,17 @@
 <template>
-    <div class="goods-item" ref="goodsitem" :style="{'min-height': minheight}">
-        <a :href="good.link">
-            <div class="img">
-                <img class="good_img" :src="good.showLarge.img" alt=""  ref="goodimg">
+    <div class="goods-item" ref="goodsitem" @click="itemClick(good)">
+        <div class="img">
+            <!-- 由于接口goodslist的数据问题：首页商品图片为：good.showLarge.img，分类页面商品图片为：good.img -->
+            <img class="good_img" :src="good.showLarge?good.showLarge.img:good.img" alt=""  ref="goodimg">
+        </div>
+        <div class="text-content">
+            <p>{{good.title}}</p>
+            <div class="price-count">
+                <span class="price">¥{{good.price}}</span>
+                <img src="~assets/img/common/collect.svg" alt="">
+                <span>{{good.cfav}}</span>
             </div>
-            <div class="text-content">
-                <p>{{good.title}}</p>
-                <div class="price-count">
-                    <span class="price">¥{{good.price}}</span>
-                    <img src="~assets/img/common/collect.svg" alt="">
-                    <span>{{good.cfav}}</span>
-                </div>
-            </div>
-        </a>
+        </div>
     </div>
     
 </template>
@@ -23,35 +22,35 @@ export default {
     props: {
         good: {
             type: Object,
-            difault() {
+            default() {
                 return {}
             }
         }
     },
-    data() {
-        return {
-            minheight: 0,
-        }
-    },
     //已经被渲染到dom
     mounted() {
-        // console.log(this.$refs.goodsitem);
-        this.$refs['goodimg'].addEventListener('load', function () {   
-            // 获取ref="goodsitem"元素的高度
-            this.minheight = parseInt(this.offsetHeight) + 46 + 'px';      
-        })
-
+        // console.log("good.img",this.good.img);
+        // console.log("good.showLarge",this.good.showLarge);  //存在返回this.good.showLarge，不存在返回undefined
     },
     methods: {
-        
+        itemClick(good){
+            // 页面跳转
+            this.$router.push('/detail/' + this.good.iid);
+        }
+    },
+    computed: {
+    //   getImg() {
+    //     return this.good.showLarge.img || this.good.img || this.good.image || this.good.show.img
+    //   }
     }
-
 }
 </script>
 
 <style scoped>
 .goods-item{
     font-size: 13px;
+    padding-bottom: 47px;
+    position: relative;
 }
 .goods-item .img{  /*图片的盒子,设置圆角*/
     border-radius: 6px;
@@ -62,7 +61,12 @@ export default {
     height: 100%;
     margin-bottom: -4px;
 }
-
+.text-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .goods-item p{
     width: 100%;
     padding: 7px 2% 0 2%;

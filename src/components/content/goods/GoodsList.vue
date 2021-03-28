@@ -1,11 +1,14 @@
 <template>
-    <div class="goods-list" >
+    <!-- <div class="goods-list" > -->
+    <grid-view :cols="2" :line-space="5" v-if="goods">
         <goods-item v-for="(good, index) in goods" :key="index" :good="good" />
-    </div>
+    </grid-view>
+    <!-- </div> -->
 </template>
 
 <script>
 import GoodsItem from 'components/content/goods/GoodsItem.vue'
+import GridView from 'components/common/gridView/GridView.vue'
 export default {
     name: "GoodsList",
     props: {
@@ -17,28 +20,13 @@ export default {
         },
     },
     components: {
-        GoodsItem
+        GoodsItem,
+        GridView
     },
     //已经被渲染到dom
     mounted() {
         
     }
-    
-//     methods: {
-//         getHeight(index){
-//              console.log(document.getElementsByClassName('img').clientHeight);
-//             // console.log(document.getElementsByClassName('img_img').offsetHeight);
-//             // return {
-//             //     height: parseInt(parseInt(this.goods[index].showLarge.h) * 0.45) + 'px'
-//             // }
-// //             let img =new Image()
-// //             img.src = this.goods[index].showLarge.img;
-// //             img.onload=function () {
-// //                 console.log('图片原始高度', img.clientHeight)
-// // //                 console.log('图片原始宽度',img.width)
-// //             }
-//         }
-//     }
 }
 </script>
 
@@ -51,7 +39,6 @@ export default {
     column-count: 2;
     column-gap: 6px;
     margin-bottom: 55px;
-   
 }
 
 </style>

@@ -6,7 +6,7 @@
                 :class="{'active': currentIndex === index}"
                 v-for="(item, index) in tabmenus" 
                 :key="index" 
-                @click="menuClick(index, item.maitKey)">
+                @click="menuClick(index, item.maitKey, item.miniWallkey)">
                 {{item.title}}
             </div>
         </div>
@@ -27,15 +27,18 @@ export default {
     data() {
         return {
             currentIndex: 0,
+            key: {}
         }
     },
     components:{
         BetterScroll,
     },
     methods: {
-        menuClick(index, maitKey){
+        menuClick(index, maitKey, miniWallkey){
             this.currentIndex = index;
-            this.$emit('selectmenu', maitKey);
+            this.key.maitKey = maitKey;
+            this.key.miniWallkey = miniWallkey;
+            this.$emit('selectmenu', this.key);
         }
     }
 }

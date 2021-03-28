@@ -25,7 +25,7 @@
       <!-- 本周流行 -->
       <feature-view/>
       <!-- TabControl -->
-      <tab-control class="tab-control" :titles="titles" v-on:tab-click="getType"/>
+      <tab-control class="tab-control" :titles="['流行', '新款', '精选']" v-on:tab-click="getType"/>
       <!-- 商品list -->
       <goods-list :goods="goods[goodtype].list"/>
     </better-scroll>
@@ -66,8 +66,7 @@ export default {
     data() {
       return {
         banners: [],
-        recommends: [],
-        titles: [],   //TabControl
+        recommends: [], 
         goodtype: 'pop',
         goods: {   //初始化存储商品信息  page：为当前的第几页，list为当前加载的数据列表
           'pop': {page: 0, list: []},
@@ -97,8 +96,18 @@ export default {
       /** 
        * 事件监听相关的点击 
        */
-      getType(type){
-        this.goodtype = type;
+      getType(index){
+        switch (index) {
+          case 0:
+            this.goodtype = 'pop'
+            break
+          case 1:
+            this.goodtype = 'new'
+            break
+          case 2:
+            this.goodtype = 'sell'
+            break
+        }
       },
 
       // 接收来自子组件BackTop的回调顶部的点击

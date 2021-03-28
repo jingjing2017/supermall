@@ -6,6 +6,7 @@ const Home = () => import('views/home/Home.vue');
 const Category = () => import('views/category/Category.vue');
 const Cart = () => import('views/cart/Cart.vue');
 const Profile = () => import('views/profile/Profile.vue');
+const Detail = () => import('views/detail/Detail.vue');
 
 
 
@@ -13,7 +14,7 @@ const Profile = () => import('views/profile/Profile.vue');
 Vue.use(VueRouter)
 
 const routes = [
-  {
+  {  //默认路由
     path: '',
     redirect: '/home'
   },
@@ -33,6 +34,10 @@ const routes = [
     path: '/profile',
     component: Profile
   },
+  {
+    path: '/detail/:iid',
+    component: Detail
+  }
 ]
 
 // 2.创建router实例
